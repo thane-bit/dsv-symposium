@@ -31,9 +31,8 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  .accent-gradient{ background: linear-gradient(90deg, var(--accent-a) 0%, var(--accent-b) 100%); }
 
-  /* ---------- animations (from the design system) ---------- */
+  /* ---------- animations ---------- */
   @keyframes role-fade-in{
     from{ opacity:0; transform:translateY(8px); }
     to{ opacity:1; transform:translateY(0); }
@@ -133,10 +132,6 @@
     font-family:var(--font-display); font-style:italic; color:hsl(var(--text));
     display:inline-block; animation:role-fade-in .4s ease-out;
   }
-  .hero-desc{
-    font-size:.95rem; color:hsl(var(--muted)); max-width:30rem; margin:0 auto 1.25rem;
-    line-height:1.6;
-  }
   .date-line{
     font-size:1rem; color:var(--dsv-orange); margin-bottom:2.25rem; letter-spacing:.03em;
   }
@@ -154,8 +149,6 @@
   .btn:hover .btn-ring{ opacity:1; }
   .btn-solid{ background:hsl(var(--text)); color:hsl(var(--bg)); }
   .btn-solid:hover{ background:hsl(var(--bg)); color:hsl(var(--text)); }
-  .btn-outline{ background:hsl(var(--bg)); color:hsl(var(--text)); box-shadow:inset 0 0 0 2px hsl(var(--stroke)); }
-  .btn-outline:hover{ box-shadow:none; }
 
   .scroll-indicator{
     position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:10;
@@ -169,128 +162,76 @@
     animation:scroll-down 1.5s ease-in-out infinite;
   }
 
+  /* ---------- shared ---------- */
+  .section-label{
+    font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.38em;
+    color:hsl(var(--muted)); margin-bottom:2rem;
+  }
+  .textured-rule{
+    height:3px; border:none; margin:2.75rem 0;
+    background-image: radial-gradient(circle, hsl(var(--stroke)) 1px, transparent 1px);
+    background-size: 5px 3px; background-repeat: repeat-x;
+  }
+
+  /* ---------- about / essay ---------- */
+  .about{ padding:6rem 1.5rem 5rem; }
+  .about-inner{ max-width:38rem; margin:0 auto; }
+  .about-title{
+    font-family:var(--font-display); font-weight:400;
+    font-size:clamp(1.9rem, 3.8vw, 2.75rem); line-height:1.12; letter-spacing:-.02em;
+    margin-bottom:2.25rem;
+  }
+  .about-title em{ font-family:var(--font-display); font-style:italic; font-weight:400; }
+  .about-inner p{
+    font-size:.975rem; color:hsl(var(--muted)); line-height:1.85; margin-bottom:1.35rem;
+    font-weight:300;
+  }
+  .about-sub{
+    font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.35em;
+    color:hsl(var(--text)); margin-bottom:1.25rem;
+  }
+
   /* ---------- speakers ---------- */
-  .speakers{ padding:6.5rem 1.5rem 1rem; scroll-margin-top:0; }
-  .speakers-inner{ max-width:36rem; margin:0 auto; }
-  .speakers-inner{ max-width:40rem; }
+  .speakers{ padding:5rem 1.5rem 4rem; }
+  .speakers-inner{ max-width:38rem; margin:0 auto; }
   .speaker-card{
-    display:flex; align-items:center; justify-content:space-between; gap:2.5rem;
-    background:hsl(var(--surface)); border:1px solid hsl(var(--stroke));
-    border-radius:1.5rem; padding:2rem 2.5rem; margin-bottom:1.25rem;
+    display:flex; align-items:center; gap:1.5rem;
+    padding:1.75rem 0; border-bottom:1px solid hsl(var(--stroke));
   }
-  .speaker-main{ display:flex; flex-direction:column; align-items:center; text-align:center; flex:none; }
-  .figurine-panel{
-    position:relative; width:13rem; aspect-ratio:.82/1; border-radius:1.1rem;
-    overflow:hidden; background:#4E85BF; margin-bottom:1rem;
+  .speaker-card:first-of-type{ border-top:1px solid hsl(var(--stroke)); }
+  .speaker-photo-wrap{
+    flex:none; width:7rem; height:7rem;
+    border-radius:.75rem; overflow:hidden;
   }
-  .figurine-ghost{
-    position:absolute; inset:0 0 auto 0; top:5%; display:flex; justify-content:center;
-    font-family:'Anton', sans-serif; font-size:4.1rem; line-height:1; color:#fff;
-    letter-spacing:-.02em; text-transform:uppercase; pointer-events:none; user-select:none;
+  .speaker-photo{
+    width:100%; height:100%; object-fit:cover; object-position:center top; display:block;
   }
-  .figurine-panel img.bust{
-    position:absolute; inset:0; width:100%; height:100%;
-    object-fit:cover; object-position:center; display:block;
-  }
-  .figurine-grain{
-    position:absolute; inset:0; pointer-events:none; opacity:.4;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-    background-size:200px 200px; background-repeat:repeat;
-  }
+  .speaker-info{ flex:1; min-width:0; }
   .speaker-name{
-    font-family:var(--font-display); font-style:italic; font-weight:400;
-    font-size:1.85rem; line-height:1.1; margin-bottom:.4rem;
+    font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.25em;
+    color:hsl(var(--text)); margin-bottom:.35rem; line-height:1.4;
   }
-  .speaker-role-caps{
-    font-size:.75rem; letter-spacing:.2em; text-transform:uppercase;
-    color:hsl(var(--text)); margin-bottom:.6rem;
+  .speaker-title{
+    font-size:.8rem; color:hsl(var(--muted)); margin-bottom:.5rem; line-height:1.5;
   }
-  .speaker-bio{ font-size:.8rem; color:hsl(var(--muted)); line-height:1.5; max-width:15rem; }
-  .speaker-org-logo{ flex:1; min-width:0; max-width:16.5rem; height:auto; opacity:.28; }
-  .speaker-org-word{
-    flex:1; min-width:0; text-align:center; font-family:'Anton',sans-serif;
-    font-size:3.4rem; letter-spacing:.02em; color:#999B9D; opacity:.28; line-height:1;
-  }
+  .speaker-bio{ font-size:.8rem; color:hsl(var(--muted)); line-height:1.6; opacity:.7; }
   .coming-soon{
-    border:1px dashed hsl(var(--stroke)); border-radius:1.5rem; padding:2rem;
-    text-align:center; font-family:var(--font-display); font-style:italic;
-    font-size:1.35rem; color:hsl(var(--muted));
+    padding:1.5rem 0; font-size:.8rem; color:hsl(var(--muted)); letter-spacing:.04em;
+    border-bottom:1px solid hsl(var(--stroke));
   }
-  @media (max-width:560px){
-    .speaker-card{ flex-direction:column; }
-    .speaker-org-logo{ max-width:11rem; }
-  }
-
-  /* ---------- about / why section ---------- */
-  .about{ padding:6.5rem 1.5rem 4rem; }
-  .about-inner{ max-width:40rem; margin:0 auto; }
-  .about-headline{
-    font-family:var(--font-display); font-style:italic; font-weight:400;
-    font-size:clamp(1.75rem, 3.5vw, 2.75rem); line-height:1.1; letter-spacing:-.02em;
-    margin-bottom:2rem;
-  }
-  .about-lead{
-    font-size:1.05rem; color:hsl(var(--text)); line-height:1.7; margin-bottom:1.25rem;
-  }
-  .about-body p{
-    font-size:.95rem; color:hsl(var(--muted)); line-height:1.75; margin-bottom:1.25rem;
-  }
-  .about-divider{
-    border:none; border-top:1px solid hsl(var(--stroke)); margin:2.75rem 0;
-  }
-  .about-sub-head{
-    font-size:.75rem; color:hsl(var(--muted)); text-transform:uppercase;
-    letter-spacing:.3em; margin-bottom:1rem;
-  }
-  .about-vsd p{
-    font-size:.95rem; color:hsl(var(--muted)); line-height:1.75; margin-bottom:1.25rem;
-  }
-  .model-stat{
-    font-size:.9rem; color:hsl(var(--muted)); line-height:1.65; margin-bottom:2rem;
-    padding:.9rem 1.1rem; background:hsl(var(--surface)); border:1px solid hsl(var(--stroke));
-    border-radius:.875rem;
-  }
-  .model-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2.75rem;
-  }
-  @media (max-width:640px){ .model-grid{ grid-template-columns:1fr; } }
-  .model-pillar{
-    background:hsl(var(--surface)); border:1px solid hsl(var(--stroke));
-    border-radius:1.1rem; padding:1.4rem 1.25rem;
-  }
-  .pillar-num{
-    font-family:'Anton',sans-serif; font-size:1.5rem; line-height:1;
-    background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    background-clip:text; margin-bottom:.75rem;
-  }
-  .model-pillar h4{
-    font-size:.85rem; font-weight:600; letter-spacing:.01em;
-    color:hsl(var(--text)); margin-bottom:.5rem; line-height:1.3;
-  }
-  .model-pillar p{
-    font-size:.8rem; color:hsl(var(--muted)); line-height:1.6;
-  }
-  .invitation-block{
-    border-left:2px solid var(--dsv-orange); padding:1.25rem 1.5rem;
-    background:hsl(var(--surface)); border-radius:0 1rem 1rem 0;
-  }
-  .invitation-eyebrow{
-    font-size:.7rem; text-transform:uppercase; letter-spacing:.25em;
-    color:var(--dsv-orange); margin-bottom:.6rem;
-  }
-  .invitation-block > p:last-child{
-    font-size:.875rem; color:hsl(var(--muted)); line-height:1.7;
+  @media (max-width:480px){
+    .speaker-photo-wrap{ width:5.5rem; height:5.5rem; }
+    .speaker-card{ gap:1rem; }
   }
 
-  /* ---------- register section ---------- */
-  .register{ padding:6.5rem 1.5rem 6rem; scroll-margin-top:0; }
+  /* ---------- register ---------- */
+  .register{ padding:6.5rem 1.5rem 6rem; }
   .register-inner{ max-width:36rem; margin:0 auto; }
   .section-eyebrow{ display:flex; align-items:center; gap:.75rem; margin-bottom:1rem; }
   .section-eyebrow .tick{ width:2rem; height:1px; background:hsl(var(--stroke)); }
   .section-eyebrow span{ font-size:.75rem; color:hsl(var(--muted)); text-transform:uppercase; letter-spacing:.3em; }
   h2{ font-size:2.25rem; font-weight:600; letter-spacing:-.02em; margin-bottom:.75rem; }
-  h2 em{ font-family:var(--font-display); font-weight:400; }
+  h2 em{ font-family:var(--font-display); font-weight:400; font-style:italic; }
   .section-sub{ color:hsl(var(--muted)); font-size:.95rem; margin-bottom:2.5rem; line-height:1.6; }
 
   .card{
@@ -303,7 +244,6 @@
     display:block; font-size:.75rem; color:hsl(var(--muted)); text-transform:uppercase;
     letter-spacing:.18em; margin-bottom:.6rem;
   }
-  label .opt{ text-transform:none; letter-spacing:0; opacity:.7; }
   input, textarea, select{
     width:100%; background:hsl(var(--bg)); color:hsl(var(--text));
     border:1px solid hsl(var(--stroke)); border-radius:.875rem;
@@ -332,7 +272,6 @@
   .form-note{ font-size:.8rem; color:hsl(var(--muted)); }
   .error-msg{ color:#E0653A; font-size:.85rem; margin-top:1rem; display:none; }
 
-  /* success state */
   .success{ display:none; text-align:center; padding:3rem 1rem; }
   .success h3{
     font-family:var(--font-display); font-style:italic; font-weight:400;
@@ -387,7 +326,6 @@
     <p class="date-line blur-in d4">28th July 2026&ensp;·&ensp;4–8pm&ensp;·&ensp;Central London</p>
     <div class="cta-row blur-in d5">
       <a class="btn btn-solid" href="#register">Register to join<span class="btn-ring"></span></a>
-      <a class="btn btn-outline" href="mailto:thane@deepscienceventures.com">Say hi&nbsp;↗<span class="btn-ring"></span></a>
     </div>
   </div>
   <div class="scroll-indicator">
@@ -396,113 +334,85 @@
   </div>
 </section>
 
-<section class="speakers" id="speakers">
-  <div class="speakers-inner">
-    <div class="section-eyebrow"><div class="tick"></div><span>Lineup</span></div>
-    <h2>Speakers</h2>
-    <p class="section-sub">Voices shaping how nations turn science into invention.</p>
+<section class="about" id="about">
+  <div class="about-inner">
+    <p class="section-label">The Case</p>
+    <h2 class="about-title">A new economic engine:<br><em>Invention as a discipline</em></h2>
 
-    <div class="speaker-card">
-      <div class="speaker-main">
-        <div class="figurine-panel">
-          <div class="figurine-ghost">ARPA</div>
-          <img class="bust" src="speaker-figurine.png" alt="William Bonvillian">
-          <div class="figurine-grain"></div>
-        </div>
-        <h3 class="speaker-name">William Bonvillian</h3>
-        <p class="speaker-role-caps">Policy Advisor</p>
-        <p class="speaker-bio">MIT — advised on the creation of ARPA-E, ARIA and US industrial policy.</p>
-      </div>
-      <img class="speaker-org-logo" src="mit-logo.png" alt="MIT">
-    </div>
+    <p>What if the primary, intentional output of UK PhD training was fundable, scalable inventions? The UK trains world-class scientists through a single lens: designed for academia, not for industrial-scale invention.</p>
+    <p>If the UK is to remain a scientific superpower, scientific PhD and postgraduate (PG) education must evolve — who we train, and how we train them. We must reimagine postgraduate science so that invention is a first-class discipline, taught, practised, and financed at the same level as research.</p>
+    <p>In the 1950s, the National Defence Education Act (NDEA) and the first Advanced Research Projects Agency (ARPA) launched PhD programmes that created the fields of electrical engineering, chemical engineering and computer science. $Trillion industries followed — Clean Energy, Pharma, AI. These PhDs invented far away from the beaten path. By learning from the past we can create the world's next pathbreaking R&D ecosystem in the UK.</p>
 
-    <div class="speaker-card">
-      <div class="speaker-main">
-        <div class="figurine-panel">
-          <img class="bust" src="speaker-dom.png" alt="Dom Falcao" style="object-position:center top">
-          <div class="figurine-grain"></div>
-        </div>
-        <h3 class="speaker-name">Dom Falcao</h3>
-        <p class="speaker-role-caps">Founding Director</p>
-        <p class="speaker-bio">Deep Science Ventures — Forbes 30 Under 30 and Schmidt Futures Innovation Fellow.</p>
-      </div>
-      <img class="speaker-org-logo" src="dsv-logo-full.png" alt="Deep Science Ventures" style="max-width:15rem">
-    </div>
+    <div class="textured-rule"></div>
 
-    <div class="speaker-card">
-      <div class="speaker-main">
-        <div class="figurine-panel">
-          <img class="bust" src="speaker-barbara.png" alt="Barbara Diehl" style="object-position:center top">
-          <div class="figurine-grain"></div>
-        </div>
-        <h3 class="speaker-name">Barbara Diehl</h3>
-        <p class="speaker-role-caps">Chief Partnership Officer</p>
-        <p class="speaker-bio">SPRIND — the Federal Agency for Breakthrough Innovation.</p>
-      </div>
-      <img class="speaker-org-logo" src="sprind-logo.png" alt="SPRIND — Bundesagentur für Sprunginnovationen" style="max-width:14rem; flex:none; margin-left:auto; margin-right:1.5rem; transform:translateY(-1rem)">
-    </div>
+    <p class="about-sub">Funding the future of scientific training</p>
+    <p>Deep Science Ventures (DSV) has created a UK-grown national Venture Science Doctorate (VSD) Programme already integrated into traditional PG and PhD pathways across leading UK, European and global HEIs. The goal of this evening is to scale the VSD: establishing a nation-wide, public–private capital model tied to invention milestones.</p>
 
-    <div class="speaker-card">
-      <div class="speaker-main">
-        <div class="figurine-panel">
-          <img class="bust" src="speaker-ronit.png" alt="Ronit Kanwar" style="object-position:center top">
-          <div class="figurine-grain"></div>
-        </div>
-        <h3 class="speaker-name">Ronit Kanwar</h3>
-        <p class="speaker-role-caps">Managing Director</p>
-        <p class="speaker-bio">Renaissance Philanthropy — unlocked $1&thinsp;billion of philanthropic capital through the P150 community.</p>
-      </div>
-      <img class="speaker-org-logo" src="rp-logo.png" alt="Renaissance Philanthropy" style="max-width:15rem; flex:none; margin-left:auto; margin-right:1rem; transform:translateY(-1rem)">
-    </div>
+    <div class="textured-rule"></div>
 
-    <div class="coming-soon">More speakers coming soon&hellip;</div>
+    <p class="about-sub">Deep Science Ventures' model</p>
+    <p>Based on a decade of building and funding venture science — +58 portfolio companies, £0.7bn across Computation, Agri, Climate and Pharma, including Mission Zero.</p>
+    <p>Invention is teachable. The Venture Science Doctorate (VSD) is a repeatable curriculum and workflow for problem selection, hypothesis-driven invention, and venture formation.</p>
+    <p>Incentives shape outcomes. Align PG training, IP policy, and funding so entrepreneurial scientists can form ventures during study without career penalty — and stay here.</p>
+    <p>Capital belongs on campus. Pair VSD with stage-gated, embedded capital and founder support within HEIs to turn talent density into venture density — and drive cultural change within research labs.</p>
+
+    <div class="textured-rule"></div>
+
+    <p class="about-sub">Exclusive invitation</p>
+    <p>DSV is convening an invitation-only forum of C-suite funders, deeptech founders, leading universities, and policymakers to move toward a concrete redesign of PhD and PG education — embedding new methods, incentives, and capital into training so every cohort can repeatedly produce fundable, globally competitive companies.</p>
+    <p>At the reception join a conversation led by Ronit Kanwar, Managing Director of Renaissance Philanthropy on the subject of the priorities a new philanthropic fund ought to have to accelerate our future inventors.</p>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="section-eyebrow"><div class="tick"></div><span>The Case</span></div>
-    <h2 class="about-headline">A new economic engine:<br><em>Invention as a discipline</em></h2>
+<section class="speakers" id="speakers">
+  <div class="speakers-inner">
+    <p class="section-label">Lineup</p>
 
-    <div class="about-body">
-      <p class="about-lead">What if the primary, intentional output of UK PhD training was fundable, scalable inventions? The UK trains world-class scientists through a single lens: designed for academia, not for industrial-scale invention.</p>
-      <p>If the UK is to remain a scientific superpower, scientific PhD and postgraduate (PG) education must evolve — who we train, and how we train them. We must reimagine postgraduate science so that invention is a first-class discipline, taught, practised, and financed at the same level as research.</p>
-      <p>In the 1950s, the National Defence Education Act (NDEA) and the first Advanced Research Projects Agency (ARPA) launched PhD programmes that created the fields of electrical engineering, chemical engineering and computer science. $Trillion industries followed — Clean Energy, Pharma, AI. These PhDs invented far away from the beaten path. By learning from the past we can create the world's next pathbreaking R&D ecosystem in the UK.</p>
-    </div>
-
-    <hr class="about-divider">
-
-    <p class="about-sub-head">Funding the future of scientific training</p>
-    <div class="about-vsd">
-      <p>Deep Science Ventures (DSV) has created a UK-grown national Venture Science Doctorate (VSD) Programme already integrated into traditional PG and PhD pathways across leading UK, European and global HEIs.</p>
-      <p>The goal of this evening is to scale the VSD: establishing a nation-wide, public–private capital model tied to invention milestones.</p>
-    </div>
-
-    <p class="about-sub-head">Deep Science Ventures' model</p>
-    <p class="model-stat">Based on a decade of building and funding venture science — +58 portfolio companies, £0.7bn across Computation, Agri, Climate and Pharma, including Mission Zero.</p>
-    <div class="model-grid">
-      <div class="model-pillar">
-        <div class="pillar-num">01</div>
-        <h4>Invention is teachable.</h4>
-        <p>The Venture Science Doctorate (VSD) is a repeatable curriculum and workflow for problem selection, hypothesis-driven invention, and venture formation.</p>
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-william.png" alt="William Bonvillian">
       </div>
-      <div class="model-pillar">
-        <div class="pillar-num">02</div>
-        <h4>Incentives shape outcomes.</h4>
-        <p>Align PG training, IP policy, and funding so entrepreneurial scientists can form ventures during study without career penalty — and stay here.</p>
-      </div>
-      <div class="model-pillar">
-        <div class="pillar-num">03</div>
-        <h4>Capital belongs on campus.</h4>
-        <p>Pair VSD with stage-gated, embedded capital and founder support within HEIs to turn talent density into venture density — and drive cultural change within research labs.</p>
+      <div class="speaker-info">
+        <h3 class="speaker-name">William Bonvillian</h3>
+        <p class="speaker-title">Policy Advisor · MIT</p>
+        <p class="speaker-bio">Advised on the creation of ARPA-E, ARIA and US industrial policy.</p>
       </div>
     </div>
 
-    <div class="invitation-block">
-      <p class="invitation-eyebrow">Exclusive invitation</p>
-      <p>DSV is convening an invitation-only forum of C-suite funders, deeptech founders, leading universities, and policymakers to move toward a concrete redesign of PhD and PG education — embedding new methods, incentives, and capital into training so every cohort can repeatedly produce fundable, globally competitive companies.</p>
-      <p style="margin-top:1rem; font-size:.875rem; color:hsl(var(--text)); line-height:1.7;">At the reception join a conversation led by Ronit Kanwar, Managing Director of Renaissance Philanthropy on the subject of the priorities a new philanthropic fund ought to have to accelerate our future inventors.</p>
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-dom.png" alt="Dom Falcao">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Dom Falcao</h3>
+        <p class="speaker-title">Founding Director · Deep Science Ventures</p>
+        <p class="speaker-bio">Forbes 30 Under 30 and Schmidt Futures Innovation Fellow.</p>
+      </div>
     </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-barbara.png" alt="Barbara Diehl">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Barbara Diehl</h3>
+        <p class="speaker-title">Chief Partnership Officer · SPRIND</p>
+        <p class="speaker-bio">The Federal Agency for Breakthrough Innovation.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-ronit.png" alt="Ronit Kanwar">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Ronit Kanwar</h3>
+        <p class="speaker-title">Managing Director · Renaissance Philanthropy</p>
+        <p class="speaker-bio">Unlocked $1&thinsp;billion of philanthropic capital through the P150 community.</p>
+      </div>
+    </div>
+
+    <div class="coming-soon">More speakers coming soon&hellip;</div>
   </div>
 </section>
 
@@ -569,11 +479,9 @@
 </footer>
 
 <script>
-  // navbar shadow on scroll
   const pill = document.getElementById('navPill');
   addEventListener('scroll', () => pill.classList.toggle('scrolled', scrollY > 100));
 
-  // rotating role word (2s cycle, re-triggers role-fade-in)
   const roles = ['inventors', 'scientists', 'engineers', 'founders', 'visionaries'];
   let ri = 0;
   const rw = document.getElementById('roleWord');
@@ -585,11 +493,9 @@
     rw.style.animation = '';
   }, 2000);
 
-  // marquee
   document.getElementById('marqueeTrack').innerHTML =
     '<span>THE INVENTION AGE&ensp;•&ensp;</span>'.repeat(10);
 
-  // form submit
   const form = document.getElementById('regForm');
   const errorMsg = document.getElementById('errorMsg');
   form.addEventListener('submit', async (e) => {
@@ -606,9 +512,6 @@
     btn.disabled = true;
     btn.firstChild.textContent = 'Registering…';
     try {
-      // straight to the Google Apps Script web app -> Google Sheet.
-      // no-cors: Apps Script sends no CORS headers; the response is opaque,
-      // so a resolved fetch is treated as success.
       await fetch('https://script.google.com/macros/s/AKfycbzbBrAlw-UnA8lsmqbyea8PHDTePTIQbZ6Iqy7P2dJ--DC4doZNUGgCMMNFwCPGWiWr/exec', {
         method: 'POST',
         mode: 'no-cors',
@@ -626,7 +529,7 @@
       errorMsg.textContent = 'Something went wrong — please try again, or email thane@deepscienceventures.com.';
       errorMsg.style.display = 'block';
       btn.disabled = false;
-      btn.firstChild.textContent = 'Register ↗';
+      btn.firstChild.textContent = 'Register ↗';
     }
   });
 </script>
