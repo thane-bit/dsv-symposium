@@ -221,6 +221,68 @@
     .speaker-org-logo{ max-width:11rem; }
   }
 
+  /* ---------- about / why section ---------- */
+  .about{ padding:6.5rem 1.5rem 4rem; }
+  .about-inner{ max-width:40rem; margin:0 auto; }
+  .about-headline{
+    font-family:var(--font-display); font-style:italic; font-weight:400;
+    font-size:clamp(1.75rem, 3.5vw, 2.75rem); line-height:1.1; letter-spacing:-.02em;
+    margin-bottom:2rem;
+  }
+  .about-lead{
+    font-size:1.05rem; color:hsl(var(--text)); line-height:1.7; margin-bottom:1.25rem;
+  }
+  .about-body p{
+    font-size:.95rem; color:hsl(var(--muted)); line-height:1.75; margin-bottom:1.25rem;
+  }
+  .about-divider{
+    border:none; border-top:1px solid hsl(var(--stroke)); margin:2.75rem 0;
+  }
+  .about-sub-head{
+    font-size:.75rem; color:hsl(var(--muted)); text-transform:uppercase;
+    letter-spacing:.3em; margin-bottom:1rem;
+  }
+  .about-vsd p{
+    font-size:.95rem; color:hsl(var(--muted)); line-height:1.75; margin-bottom:1.25rem;
+  }
+  .model-stat{
+    font-size:.9rem; color:hsl(var(--muted)); line-height:1.65; margin-bottom:2rem;
+    padding:.9rem 1.1rem; background:hsl(var(--surface)); border:1px solid hsl(var(--stroke));
+    border-radius:.875rem;
+  }
+  .model-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2.75rem;
+  }
+  @media (max-width:640px){ .model-grid{ grid-template-columns:1fr; } }
+  .model-pillar{
+    background:hsl(var(--surface)); border:1px solid hsl(var(--stroke));
+    border-radius:1.1rem; padding:1.4rem 1.25rem;
+  }
+  .pillar-num{
+    font-family:'Anton',sans-serif; font-size:1.5rem; line-height:1;
+    background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text; margin-bottom:.75rem;
+  }
+  .model-pillar h4{
+    font-size:.85rem; font-weight:600; letter-spacing:.01em;
+    color:hsl(var(--text)); margin-bottom:.5rem; line-height:1.3;
+  }
+  .model-pillar p{
+    font-size:.8rem; color:hsl(var(--muted)); line-height:1.6;
+  }
+  .invitation-block{
+    border-left:2px solid var(--dsv-orange); padding:1.25rem 1.5rem;
+    background:hsl(var(--surface)); border-radius:0 1rem 1rem 0;
+  }
+  .invitation-eyebrow{
+    font-size:.7rem; text-transform:uppercase; letter-spacing:.25em;
+    color:var(--dsv-orange); margin-bottom:.6rem;
+  }
+  .invitation-block > p:last-child{
+    font-size:.875rem; color:hsl(var(--muted)); line-height:1.7;
+  }
+
   /* ---------- register section ---------- */
   .register{ padding:6.5rem 1.5rem 6rem; scroll-margin-top:0; }
   .register-inner{ max-width:36rem; margin:0 auto; }
@@ -394,6 +456,52 @@
     </div>
 
     <div class="coming-soon">More speakers coming soon&hellip;</div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="section-eyebrow"><div class="tick"></div><span>The Case</span></div>
+    <h2 class="about-headline">A new economic engine:<br><em>Invention as a discipline</em></h2>
+
+    <div class="about-body">
+      <p class="about-lead">What if the primary, intentional output of UK PhD training was fundable, scalable inventions? The UK trains world-class scientists through a single lens: designed for academia, not for industrial-scale invention.</p>
+      <p>If the UK is to remain a scientific superpower, scientific PhD and postgraduate (PG) education must evolve — who we train, and how we train them. We must reimagine postgraduate science so that invention is a first-class discipline, taught, practised, and financed at the same level as research.</p>
+      <p>In the 1950s, the National Defence Education Act (NDEA) and the first Advanced Research Projects Agency (ARPA) launched PhD programmes that created the fields of electrical engineering, chemical engineering and computer science. $Trillion industries followed — Clean Energy, Pharma, AI. These PhDs invented far away from the beaten path. By learning from the past we can create the world's next pathbreaking R&D ecosystem in the UK.</p>
+    </div>
+
+    <hr class="about-divider">
+
+    <p class="about-sub-head">Funding the future of scientific training</p>
+    <div class="about-vsd">
+      <p>Deep Science Ventures (DSV) has created a UK-grown national Venture Science Doctorate (VSD) Programme already integrated into traditional PG and PhD pathways across leading UK, European and global HEIs.</p>
+      <p>The goal of this evening is to scale the VSD: establishing a nation-wide, public–private capital model tied to invention milestones.</p>
+    </div>
+
+    <p class="about-sub-head">Deep Science Ventures' model</p>
+    <p class="model-stat">Based on a decade of building and funding venture science — +58 portfolio companies, £0.7bn across Computation, Agri, Climate and Pharma, including Mission Zero.</p>
+    <div class="model-grid">
+      <div class="model-pillar">
+        <div class="pillar-num">01</div>
+        <h4>Invention is teachable.</h4>
+        <p>Venture Science Design (VSD) is a repeatable curriculum and workflow for problem selection, hypothesis-driven invention, and venture formation.</p>
+      </div>
+      <div class="model-pillar">
+        <div class="pillar-num">02</div>
+        <h4>Incentives shape outcomes.</h4>
+        <p>Align PG training, IP policy, and funding so entrepreneurial scientists can form ventures during study without career penalty — and stay here.</p>
+      </div>
+      <div class="model-pillar">
+        <div class="pillar-num">03</div>
+        <h4>Capital belongs on campus.</h4>
+        <p>Pair VSD with stage-gated, embedded capital and founder support within HEIs to turn talent density into venture density — and drive cultural change within research labs.</p>
+      </div>
+    </div>
+
+    <div class="invitation-block">
+      <p class="invitation-eyebrow">Exclusive invitation</p>
+      <p>DSV is convening an invitation-only forum of C-suite funders, deeptech founders, leading universities, and policymakers to move toward a concrete redesign of PhD and PG education — embedding new methods, incentives, and capital into training so every cohort can repeatedly produce fundable, globally competitive companies.</p>
+    </div>
   </div>
 </section>
 
