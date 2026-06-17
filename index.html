@@ -566,5 +566,17 @@
     }
   });
 </script>
+<script>
+  function sendHeight(){
+    parent.postMessage(
+      { type: 'iframeHeight', height: document.documentElement.scrollHeight },
+      '*'
+    );
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  if (window.ResizeObserver) new ResizeObserver(sendHeight).observe(document.body);
+  setTimeout(sendHeight, 800);
+</script>
 </body>
 </html>
