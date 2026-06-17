@@ -199,9 +199,34 @@
   /* ---------- speakers ---------- */
   .speakers{ padding:5rem 1.5rem 4rem; }
   .speakers-inner{ max-width:38rem; margin:0 auto; }
+  .speaker-card{
+    display:flex; align-items:center; gap:1.5rem;
+    padding:1.75rem 0; border-bottom:1px solid hsl(var(--stroke));
+  }
+  .speaker-card:first-of-type{ border-top:1px solid hsl(var(--stroke)); }
+  .speaker-photo-wrap{
+    flex:none; width:7rem; height:7rem;
+    overflow:hidden;
+  }
+  .speaker-photo{
+    width:100%; height:100%; object-fit:cover; object-position:center top; display:block;
+  }
+  .speaker-info{ flex:1; min-width:0; }
+  .speaker-name{
+    font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.25em;
+    color:hsl(var(--text)); margin-bottom:.35rem; line-height:1.4;
+  }
+  .speaker-title{
+    font-size:.8rem; color:hsl(var(--muted)); margin-bottom:.5rem; line-height:1.5;
+  }
+  .speaker-bio{ font-size:.8rem; color:hsl(var(--muted)); line-height:1.6; opacity:.7; }
   .coming-soon{
     padding:1.5rem 0; font-size:.8rem; color:hsl(var(--muted)); letter-spacing:.04em;
-    border-bottom:1px solid hsl(var(--stroke)); border-top:1px solid hsl(var(--stroke));
+    border-bottom:1px solid hsl(var(--stroke));
+  }
+  @media (max-width:480px){
+    .speaker-photo-wrap{ width:5.5rem; height:5.5rem; }
+    .speaker-card{ gap:1rem; }
   }
 
   /* ---------- register ---------- */
@@ -319,7 +344,7 @@
     <p class="about-sub">A conversation of national importance</p>
     <p>As strategic advisor to DSIT&rsquo;s TechFirst programme, Deep Science Ventures is supporting a conversation on the future of the scientific workforce.</p>
     <p>Deep Science Ventures is convening an invitation-only forum of C-suite funders, deeptech founders, leading universities, and policymakers to move toward a concrete redesign of PhD and PG education, embedding AI co-scientists, incentivising venture creation, and bringing capital into training so that cohorts of fundable, globally competitive companies grow institutional revenues.</p>
-    <p>The evening will close with a dinner reception led by Renaissance Philanthropy &mdash; a conversation about the creation of a fund to accelerate human-centric progress. Conversations will proceed under Chatham House rules and summaries will be fed into the Future Skills Agenda.</p>
+    <p>A reception hosted by Renaissance Philanthropy will consider key themes for a new philanthropic fund dedicated to accelerating UK prosperity. Conversations will proceed under Chatham House rules and summaries will be fed into the Future Skills Agenda.</p>
 
     <div class="textured-rule"></div>
 
@@ -344,7 +369,83 @@
 <section class="speakers" id="speakers">
   <div class="speakers-inner">
     <p class="section-label">Lineup</p>
-    <p class="coming-soon">Speakers to be announced.</p>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-william.png" alt="William Bonvillian">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">William Bonvillian</h3>
+        <p class="speaker-title">Policy Advisor · MIT</p>
+        <p class="speaker-bio">Advised on the creation of ARPA-E, ARIA and US industrial policy.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-dom.png" alt="Dom Falcao">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Dom Falcao</h3>
+        <p class="speaker-title">Founding Director · Deep Science Ventures</p>
+        <p class="speaker-bio">Forbes 30 Under 30 and Schmidt Futures Innovation Fellow.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-barbara.png" alt="Barbara Diehl">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Barbara Diehl</h3>
+        <p class="speaker-title">Chief Partnership Officer · SPRIND</p>
+        <p class="speaker-bio">The Federal Agency for Breakthrough Innovation.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-ronit.png" alt="Ronit Kanwar">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Ronit Kanwar</h3>
+        <p class="speaker-title">Managing Director · Renaissance Philanthropy</p>
+        <p class="speaker-bio">Unlocked $1&thinsp;billion of philanthropic capital through the P150 community.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-vlad.png" alt="Vlad Iorgulescu">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Vlad Iorgulescu</h3>
+        <p class="speaker-title">PhD Venture Scientist · Deep Science Ventures</p>
+        <p class="speaker-bio">Building ELMO Fusion for modular, deuterium-based clean energy at scale.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-daniela.png" alt="Daniela Pamias Lopez">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Daniela Pamias Lopez</h3>
+        <p class="speaker-title">PhD Venture Scientist · Deep Science Ventures</p>
+        <p class="speaker-bio">Building ReOvaria for ovarian rejuvenation, 5+ years of health for 2 billion women.</p>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo-wrap">
+        <img class="speaker-photo" src="speaker-shrey.png" alt="Shrey Shah">
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">Shrey Shah</h3>
+        <p class="speaker-title">PhD Venture Scientist · Deep Science Ventures</p>
+        <p class="speaker-bio">Building Karbana, synthetic graphite for clean batteries abating 90&thinsp;MT of carbon emissions every year.</p>
+      </div>
+    </div>
   </div>
 </section>
 
