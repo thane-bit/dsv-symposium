@@ -453,51 +453,14 @@
   <div class="register-inner">
     <div class="section-eyebrow"><div class="tick"></div><span>Save the date</span></div>
     <h2>Register your <em>place</em></h2>
-    <p class="section-sub">Tell us who you are and we'll hold you a spot. Numbers are limited; first come, first served.</p>
+    <p class="section-sub">Numbers are limited; first come, first served. Registration is handled securely through Luma — you'll get a confirmation email and a calendar invite straight away.</p>
 
-    <div class="card" id="formCard">
-      <form id="regForm" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="ada@analyticalengine.co.uk" required>
-        </div>
-        <div class="field">
-          <label for="dietary">Dietary requirements</label>
-          <p class="field-note">The dinner reception starts at 8pm.</p>
-          <select id="dietary" name="dietary" required>
-            <option value="" disabled selected hidden>Choose an option…</option>
-            <option>No requirements</option>
-            <option>Vegetarian</option>
-            <option>Vegan</option>
-            <option>Pescatarian</option>
-            <option>Gluten free</option>
-            <option>Dairy / lactose free</option>
-            <option>Halal</option>
-            <option>Kosher</option>
-            <option>Nut allergy</option>
-            <option>Not attending the dinner</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="invention" class="prompt-label">To prepare for an &ldquo;Invention&nbsp;Age&rdquo; the UK must&hellip;</label>
-          <textarea id="invention" name="invention" placeholder="…finish the sentence."></textarea>
-        </div>
-        <div class="submit-row">
-          <button class="btn btn-solid" type="submit" id="submitBtn">Register&nbsp;↗<span class="btn-ring"></span></button>
-          <span class="form-note">We'll only use your details for this event.</span>
-        </div>
-        <p class="error-msg" id="errorMsg">Something went wrong. Please try again, or email <a href="mailto:thane@deepscienceventures.com" style="color:inherit">thane@deepscienceventures.com</a>.</p>
-      </form>
-
-      <div class="success" id="successView">
-        <h3>See you in July.</h3>
-        <p>You're registered for <strong style="color:hsl(var(--text))">The Great Update: Invention Institutions After AI</strong>.<br>We'll send the venue details to your inbox nearer the date.</p>
-        <p class="date">28th July 2026 · 5:30–9:30pm · Central London</p>
-      </div>
+    <div class="card" id="formCard" style="text-align:center;">
+      <a class="btn btn-solid luma-checkout--button"
+         href="https://lu.ma/q0405wby"
+         data-luma-action="checkout"
+         data-luma-event-id="evt-ASFW4QplbDlOnQI">Register&nbsp;↗<span class="btn-ring"></span></a>
+      <p class="form-note" style="margin-top:1.5rem;">The registration form, including dinner &amp; dietary details, opens in a window on this page.</p>
     </div>
   </div>
 </section>
@@ -528,44 +491,8 @@
 
   document.getElementById('marqueeTrack').innerHTML =
     '<span>THE INVENTION AGE&ensp;•&ensp;</span>'.repeat(10);
-
-  const form = document.getElementById('regForm');
-  const errorMsg = document.getElementById('errorMsg');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    errorMsg.style.display = 'none';
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errorMsg.textContent = 'Please enter your name and a valid email address.';
-      errorMsg.style.display = 'block';
-      return;
-    }
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = true;
-    btn.firstChild.textContent = 'Registering…';
-    try {
-      await fetch('https://script.google.com/macros/s/AKfycbzbBrAlw-UnA8lsmqbyea8PHDTePTIQbZ6Iqy7P2dJ--DC4doZNUGgCMMNFwCPGWiWr/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          name, email,
-          dietary: form.dietary.value.trim(),
-          invention: form.invention.value.trim(),
-        }),
-      });
-      form.style.display = 'none';
-      document.getElementById('successView').style.display = 'block';
-    } catch (err) {
-      errorMsg.textContent = 'Something went wrong. Please try again, or email thane@deepscienceventures.com.';
-      errorMsg.style.display = 'block';
-      btn.disabled = false;
-      btn.firstChild.textContent = 'Register ↗';
-    }
-  });
 </script>
+<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 <script>
   function sendHeight(){
     parent.postMessage(
